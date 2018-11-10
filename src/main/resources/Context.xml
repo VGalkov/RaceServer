@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="RaceServerApplication" name="RaceServerApplication"
+		class="ru.galkov.raceserver.RaceServerApplication" lazy-init="false"
+		scope="request" autowire="constructor">
+	</bean>
+	<bean id="MysqlConnector" name="MysqlConnector"
+		class="ru.galkov.raceserver.MysqlConnector"
+		parent="RaceServerApplication" primary="false" scope="singleton"
+		autowire="constructor" lazy-init="false">
+	</bean>
+	<bean id="Key" name="Key" class="ru.galkov.raceserver.Key"
+		parent="RaceServerApplication" primary="false" scope="singleton"
+		autowire="constructor" lazy-init="false">
+	</bean>
+	<bean id="AskCurrentRaceStart" name="AskCurrentRaceStart"
+		class="ru.galkov.raceserver.ActivityResponders.AskCurrentRaceStart"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="AskForLogin" name="AskForLogin"
+		class="ru.galkov.raceserver.ActivityResponders.AskForLogin"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="AskForMainLog" name="AskForMainLog"
+		class="ru.galkov.raceserver.ActivityResponders.AskForMainLog"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="AskMarksList" name="AskMarksList"
+		class="ru.galkov.raceserver.ActivityResponders.AskMarksList"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="AskMasterMark" name="AskMasterMark"
+		class="ru.galkov.raceserver.ActivityResponders.AskMasterMark"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="AskRaceStructure" name="AskRaceStructure"
+		class="ru.galkov.raceserver.ActivityResponders.AskRaceStructure"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="AskResultsTable" name="AskResultsTable"
+		class="ru.galkov.raceserver.ActivityResponders.AskResultsTable"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="AskServerTime" name="AskServerTime"
+		class="ru.galkov.raceserver.ActivityResponders.AskServerTime"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="AskStartSructure" name="AskStartSructure"
+		class="ru.galkov.raceserver.ActivityResponders.AskStartSructure"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="AskUserTable" name="AskUserTable"
+		class="ru.galkov.raceserver.ActivityResponders.AskUserTable"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="SendActiveRaceStart" name="SendActiveRaceStart"
+		class="ru.galkov.raceserver.ActivityResponders.SendActiveRaceStart"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="SendNewLoginLevel" name="SendNewLoginLevel"
+		class="ru.galkov.raceserver.ActivityResponders.SendNewLoginLevel"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="SendUserNFCDiscovery" name="SendUserNFCDiscovery"
+		class="ru.galkov.raceserver.ActivityResponders.SendUserNFCDiscovery"
+		parent="RaceServerApplication" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="SendNewNFCMark" name="SendNewNFCMark"
+		class="ru.galkov.raceserver.ActivityResponders.SendNewNFCMark"
+		parent="RaceServerApplication" autowire="constructor" primary="false"
+		scope="request">
+	</bean>
+	<bean id="SendNewRaceStart" name="SendNewRaceStart"
+		class="ru.galkov.raceserver.ActivityResponders.SendNewRaceStart"
+		parent="RaceServerApplication" primary="false" scope="request"
+		autowire="constructor">
+	</bean>
+	<bean id="WriteLog" name="WriteLog"
+		class="ru.galkov.raceserver.ActivityResponders.WriteLog"
+		parent="RaceServerApplication" primary="false" scope="singleton"
+		autowire="constructor" lazy-init="false">
+	</bean>
+</beans>
