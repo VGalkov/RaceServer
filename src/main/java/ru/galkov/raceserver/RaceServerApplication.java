@@ -13,7 +13,8 @@ public class RaceServerApplication {
 	public static final String resultDirectory = "results";
 	public static final SimpleDateFormat formatForDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.####");
-	public static final int USER_GEO_TIMER = 60; //10% от этого идёт в ход для записи координат зарегистрировавшегося в базу.
+	public static final int USER_GEO_TIMER = 600;
+	public static final int USER_GEO_FREQ =500;
 	public static enum fieldsJSON {stop_time,start_time,IMGType,counter,topic,master_mark_delta,mark_master_latitude,mark_master_altitude,mark_master_longitude, master_mark_label, mark_type,resultsFileDir,resultsFileLink, exec_login,exec_level,start, asker,password, rows, date, key, mark, marks, error, usersArr, login, level, status, latitude, altitude,longitude, label, race_id, gps_point_id, race, race_name, start_id, start_label, mark_label, name, active, racesConfig, startsConfig, fileType}
 	public static enum trigger {TRUE, FALSE}
 	public static enum access {Admin, User, Guest, Error,Delete}

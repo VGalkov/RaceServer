@@ -17,6 +17,7 @@ public class AskServerTime extends AskRoot {
 	private static final String ASKER = "AskServerTime";
 	private SimpleDateFormat formatForDate = RaceServerApplication.formatForDate;
 	private final int USER_GEO_TIMER = RaceServerApplication.USER_GEO_TIMER;
+	private final int USER_GEO_FREQ = RaceServerApplication.USER_GEO_FREQ;
 	
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") //,	method = RequestMethod.POST) 
 	@ResponseBody
@@ -46,13 +47,14 @@ public class AskServerTime extends AskRoot {
 					
 //TODO не нужно каждый тик прописывать новое положение клиента. пока сюда приходит на ум добавить rundom
 					final Random random = new Random();
-					if (random.nextInt(USER_GEO_TIMER)<=USER_GEO_TIMER/10) {
+					if (random.nextInt(USER_GEO_TIMER)<=USER_GEO_TIMER/USER_GEO_FREQ) {
 						if ((exec_login!=null) && (!exec_login.equals("nobody")) && (!exec_login.equals(""))) {
 							UsersDAO uDAO = new UsersDAO();
 							Users u = uDAO.getRowIdByLogin(exec_login);
 							u.setAltitude(altitude);
 							u.setLatitude(latitude);
 							u.setLongtitude(longtitude);
+							
 							uDAO = new UsersDAO();
 							uDAO.updateRow(u);
 						}

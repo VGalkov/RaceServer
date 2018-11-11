@@ -18,6 +18,7 @@ public class SendNewLoginLevel extends AskRoot {
 		String exec_level ="Error", exec_login = "nobody", login = "", inLevel = "", clientKey = "", password = "", master_mark_label="";
 		JSONObject outBoundJSON = new JSONObject();
 		JSONObject inBoundJSON = null;
+		Double altitude = 0.0, latitude = 0.0, longtitude = 0.0;
 		
 	try {		
 		outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
@@ -28,7 +29,10 @@ public class SendNewLoginLevel extends AskRoot {
 		exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString()); 
 		clientKey = inBoundJSON.getString(fieldsJSON.key.toString()); 
 		inLevel = inBoundJSON.getString(fieldsJSON.level.toString()); 
-		login = inBoundJSON.getString(fieldsJSON.login.toString()); 		
+		login = inBoundJSON.getString(fieldsJSON.login.toString());
+		latitude = inBoundJSON.getDouble(fieldsJSON.latitude.toString());	
+		altitude = inBoundJSON.getDouble(fieldsJSON.altitude.toString());	
+		longtitude = inBoundJSON.getDouble(fieldsJSON.longitude.toString());	
 				
 		if (serverKey.chkFileKey(clientKey))	{
 			// ввести проверку уровня доступа или нужно запускать security
@@ -54,6 +58,9 @@ public class SendNewLoginLevel extends AskRoot {
 				user.setId(iD);
 				user.setPassword(password);
 				user.setMaster_mark_label(master_mark_label);
+				user.setAltitude(altitude);
+				user.setLatitude(latitude);
+				user.setLongtitude(longtitude);
 				u = new UsersDAO();
 				u.updateRow(user);
 			}			

@@ -27,7 +27,7 @@ public class SendNewNFCMark extends AskRoot{
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		Double altitude = 0.0, latitude = 0.0, longitude = 0.0;
 		long race = 0;
-		int counter = 0;
+//		int counter = 0;
 		String exec_level ="Error", exec_login = "nobody", mark = "", clientKey = "";//, mark_type = marksTypes.normal.toString();
 		JSONObject outBoundJSON = new JSONObject();
 		JSONObject inBoundJSON = null;
@@ -44,8 +44,8 @@ public class SendNewNFCMark extends AskRoot{
 		latitude = inBoundJSON.getDouble(fieldsJSON.latitude.toString());   
 		longitude = inBoundJSON.getDouble(fieldsJSON.longitude.toString()); 
 		altitude = inBoundJSON.getDouble(fieldsJSON.altitude.toString()); 
-		try { counter = inBoundJSON.getInt(fieldsJSON.counter.toString()); }
-		catch (JSONException e) { e.printStackTrace(); }
+//		try { counter = inBoundJSON.getInt(fieldsJSON.counter.toString()); }
+//		catch (JSONException e) { e.printStackTrace(); }
 		
 		if (serverKey.chkFileKey(clientKey))	{
 			// ввести проверку уровня доступа или нужно запускать security
@@ -65,7 +65,7 @@ public class SendNewNFCMark extends AskRoot{
 			markDB.setAltitude(altitude);
 			markDB.setLatitude(latitude);
 			markDB.setLongtitude(longitude);
-			markDB.setCounter(counter);
+//			markDB.setCounter(counter);
 			
 			NFCmarksDAO nfc = new NFCmarksDAO();
 			nfc.addRow(markDB);

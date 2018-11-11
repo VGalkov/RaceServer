@@ -69,6 +69,7 @@ public class UsersDAO implements users_interface {
 				u.setAltitude(res.getDouble("altitude"));
 				u.setLatitude(res.getDouble("latitude"));
 				u.setLongtitude(res.getDouble("longtitude"));
+				u.setMaster_mark_label(res.getString("master_mark_label"));
 			}
 
 		} catch (SQLException e) { logger.info(e.getMessage());}
@@ -139,9 +140,9 @@ public class UsersDAO implements users_interface {
 	
 	@Override	
 	public void update(String sql ) {
-		logger.debug(sql);
 		try {
 			stmt = con.createStatement();
+			logger.debug(sql);
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) { logger.info(e.getMessage());}
 		close();
