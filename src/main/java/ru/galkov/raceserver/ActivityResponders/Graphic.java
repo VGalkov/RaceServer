@@ -5,15 +5,22 @@ package ru.galkov.raceserver.ActivityResponders;
 	import java.awt.Graphics;
 	import java.awt.image.BufferedImage;
 
+	/*
+	 *@galkov
+	 создаёт рисунок результатов текущего старта. 
+	 удобно видеть положение в турнире в реалтайме.
+	 * */
+	
 	public class Graphic {
 		public void Close(){	}
 		
 		Graphic(){	}
 		
 		public BufferedImage DrawDefault() {
-			// странная координатная сетка (не понятные мне поправки, дающие правильное изображение)
+//TODO передавать сюда нужный размер 
 			int ImageWidth = 520;
 			int ImageHeight = 220;
+			
 			int ramka = 3;
 	        BufferedImage b = new BufferedImage(ImageWidth, ImageHeight, BufferedImage.TYPE_BYTE_INDEXED);
 	        Graphics gr = b.getGraphics();
