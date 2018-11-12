@@ -47,7 +47,7 @@ public class AskForMainLog extends AskRoot {
 		                obj.put(fieldsJSON.start_id.toString(), Row.getStart_id());
 		                obj.put(fieldsJSON.race_id.toString(), Row.getRace_id());
 		                obj.put(fieldsJSON.longitude.toString(), Row.getLongtitude());
-		                obj.put(fieldsJSON.altitude.toString(), Row.getLongtitude());
+		                obj.put(fieldsJSON.altitude.toString(), Row.getAltitude());
 		                obj.put(fieldsJSON.date.toString(), Row.getDt());
 
 		                arr.put(obj);						

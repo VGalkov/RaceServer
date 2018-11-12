@@ -6,6 +6,7 @@ import java.util.*;
 import ru.galkov.raceserver.*;
 import ru.galkov.raceserver.db_access.interfaces.main_log_interface;
 import ru.galkov.raceserver.db_access.model.MainLog;
+import ru.galkov.raceserver.db_access.model.Users;
 
 
 public class MainLogDAO implements main_log_interface {
@@ -130,6 +131,45 @@ public class MainLogDAO implements main_log_interface {
 	}
 	
 	
+	public List<MainLog> getRecordsOfCurrentStart(Users user1, long race_id, long start_id) {
+		List<MainLog> ml =null;
+		try {
+			ResultSet res = execute("select * from main_log where "
+					+ "(`login`='" + user1.getLogin() + "') and "
+					+ "(`start_id` = '" + start_id + "') and"
+					+ "(`race_id` = '" + race_id + "')");
+			ml = new ArrayList<MainLog>();
+			
+			while (res.next()) {
+				MainLog m = new MainLog();
+				m.setId(res.getLong("id"));
+				m.setDt(formatForDate.parse(res.getString("datetime") + " " + res.getString("datetime")));
+				m.setLogin(res.getString("login"));
+				m.setMark_id(res.getLong("mark_id"));
+				m.setRace_id(res.getLong("race_id"));
+				m.setUser_id(res.getLong("user_id"));
+				m.setStart_id(res.getLong("start_id"));
+				m.setAltitude(res.getDouble("altitude"));
+				m.setLatitude(res.getDouble("latitude"));
+				m.setLongtitude(res.getDouble("longtitude"));			
+				m.setMark_label(res.getString("mark_label"));
+				m.setMasterMarkLabel(res.getString("master_mark_label"));
+				m.setMasterMarkDelta(res.getInt("master_mark_delta"));
+				m.setMark_master_altitude(res.getDouble("mark_master_altitude"));
+				m.setMark_master_latitude(res.getDouble("mark_master_latitude"));
+				m.setMark_master_longtitude(res.getDouble("mark_master_longtitude"));
+				
+				ml.add(m);
+			}
+		}
+		catch (SQLException | ParseException e) {	logger.error(e.getMessage());	}
+		finally { close(); 	}	
+		return ml;
+	}
+	
+	
+	
+	
 	@Override
 	public ResultSet execute(String sql ) {
 		ResultSet res = null;
@@ -151,6 +191,9 @@ public class MainLogDAO implements main_log_interface {
 		} catch (SQLException e) { logger.info(e.getMessage());}
 		close();
 	}
+	
+	
+	
 /*
 	public boolean checkPassed(long MarkID1, long start_id2, long race_id3, String exec_login4) {
 		boolean flag = false;
