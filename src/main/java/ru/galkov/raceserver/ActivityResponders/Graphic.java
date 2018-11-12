@@ -68,6 +68,10 @@ import ru.galkov.raceserver.db_access.model.Users;
 				MainLogDAO mainLog = new MainLogDAO();
 				List<MainLog> Rows = mainLog.getRecordsOfCurrentStart(u, race_id, start_id);
 				// здесь список регистраций текущего старта.
+				// на Y - время, X - точки в порядке прохождения. 
+			}
+			else {
+				// тут графики всех участников. как расположить точки в одинаковом порядке для всех одинаково?
 			}
 			
 	        BufferedImage b = new BufferedImage(ImageWidth, ImageHeight, BufferedImage.TYPE_BYTE_INDEXED);
