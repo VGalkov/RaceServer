@@ -36,15 +36,14 @@ public class SendActiveRaceStart extends AskRoot {
 				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());
 				start_id = inBoundJSON.getLong(fieldsJSON.start_id.toString());
 				race_id = inBoundJSON.getLong(fieldsJSON.race_id.toString());
+				start_time = inBoundJSON.getString(fieldsJSON.start_time.toString());
+				stop_time = inBoundJSON.getString(fieldsJSON.stop_time.toString());
 				
-				//stop_time = formatForDate.format(new Date()); 
-
-				
+				//stop_time = formatForDate.format(new Date()); 				
 				if (serverKey.chkFileKey(clientKey))	{
 
 					RaceDAO rDAO = new RaceDAO();
 					rDAO.setActive(race_id);
-					// TODO логическая ошибка star_id, а нужеy ID ?!хз ... проверить
 					StartDAO sDAO = new StartDAO();
 					Start start = sDAO.getRowById(start_id);
 					
@@ -55,6 +54,15 @@ public class SendActiveRaceStart extends AskRoot {
 					sDAO = new StartDAO();
 					sDAO.setActive(start_id);
 					 
+					sDAO = new StartDAO();
+					start = sDAO.getRowById(start_id);
+					start.setStart_time(start_time);
+					start.setStop_time(stop_time);
+					
+					sDAO = new StartDAO();
+					sDAO.updateRow(start);
+					
+					
 					sDAO = new StartDAO();
 					start = sDAO.getRowById(start_id);
 					

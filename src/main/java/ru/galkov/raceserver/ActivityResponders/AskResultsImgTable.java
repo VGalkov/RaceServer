@@ -40,7 +40,7 @@ import javax.servlet.http.*;
 					clientKey = inBoundJSON.getString(fieldsJSON.key.toString());		
 					exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());
 					exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
-//					imgType = inBoundJSON.getString(fieldsJSON.IMGType.toString());
+					imgType = inBoundJSON.getString(fieldsJSON.IMGType.toString());
 									
 					if (serverKey.chkFileKey(clientKey))	{
 			            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
@@ -48,7 +48,9 @@ import javax.servlet.http.*;
 						List<Users> Rows = null;
 			            			    		
 						ByteArrayOutputStream os = new ByteArrayOutputStream();
+
 		                Graphic image = new Graphic();
+						image.setIMGType(imgType, exec_login);		                
 		                ImageIO.write(image.DrawDefault(), "png", os);
 		                
 		                try {
