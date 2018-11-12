@@ -1,12 +1,7 @@
 package ru.galkov.raceserver.ActivityResponders;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
-
-import ru.galkov.raceserver.RaceServerApplication;
 import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
 import ru.galkov.raceserver.db_access.*;
 import ru.galkov.raceserver.db_access.model.Start;
@@ -14,8 +9,6 @@ import ru.galkov.raceserver.db_access.model.Start;
 @RestController
 public class SendActiveRaceStart extends AskRoot {
 	private static final String ASKER = "SendActiveRaceStart";
-	private SimpleDateFormat formatForDate = RaceServerApplication.formatForDate; 
-
 	
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody

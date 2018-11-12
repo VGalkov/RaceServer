@@ -1,8 +1,6 @@
 package ru.galkov.raceserver.db_access;
 
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import ru.galkov.raceserver.*;
 import ru.galkov.raceserver.db_access.interfaces.start_interface;
@@ -11,7 +9,6 @@ import ru.galkov.raceserver.db_access.model.Start;
 public class StartDAO implements start_interface {
 
 	private MysqlConnector mc; 
-	private SimpleDateFormat formatForDate = RaceServerApplication.formatForDate;
 	private java.sql.Statement stmt;
 	private Connection con;
 	
