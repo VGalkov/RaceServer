@@ -2,6 +2,7 @@ package ru.galkov.raceserver.db_access;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import ru.galkov.raceserver.MysqlConnector;
 import ru.galkov.raceserver.db_access.interfaces.users_interface;
@@ -30,24 +31,32 @@ public class user_track_DAO implements users_interface {
 
 	@Override
 	public void close() {
-		// TODO Auto-generated method stub
+		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
+		if (mc!=null) { mc.close(); } 
 		
 	}
 
 
-	@Override
-	public ResultSet execute(String sql) {
-		// TODO Auto-generated method stub
-		return null;
+	@Override	
+	public void update(String sql ) {
+		logger.debug(sql);
+		try {
+			stmt = con.createStatement();
+			stmt.executeUpdate(sql);
+		} catch (SQLException e) { logger.info(e.getMessage());}
 	}
-
-
+	
 	@Override
-	public void update(String sql) {
-		// TODO Auto-generated method stub
-		
+	public ResultSet execute(String sql ) {
+		ResultSet res = null;
+		try {
+			stmt = con.createStatement();
+			logger.debug(sql);
+			res = stmt.executeQuery(sql);
+		} 
+		catch (SQLException e) {	logger.error(e.getMessage());	}
+		return res;
 	}
-
 
 	@Override
 	public void addRow(Users user) {
