@@ -23,6 +23,7 @@ public class SendActiveRaceStart extends AskRoot {
 		try {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
+		
 				
 				exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());			
 				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
