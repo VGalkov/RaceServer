@@ -69,6 +69,7 @@ public class AskRaceConfig  extends AskRoot {
 					
 					List<Users> Rows = users.getAllRows();
 					JSONArray arr = new JSONArray();
+					outBoundJSON.put(fieldsJSON.counter.toString(), Rows.size());
 					
 					for (int i =0; i<Rows.size(); i++  ) {
 						Users Row = Rows.get(i);

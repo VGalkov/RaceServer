@@ -3445,3 +3445,5 @@ public java.lang.String ru.galkov.raceserver.ActivityResponders.AskRaceConfig.ma
 2018-11-14 20:36:02.153 DEBUG 9604 --- [main] .s.c.a.CommonAnnotationBeanPostProcessor : Invoking init method on bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceJmxConfiguration$Hikari': public void org.springframework.boot.autoconfigure.jdbc.DataSourceJmxConfiguration$Hikari.validateMBeans()
 2018-11-14 20:36:02.351  INFO 9604 --- [main] r.g.raceserver.RaceServerApplication     : Started RaceServerApplication in 3.045 seconds (JVM running for 3.574)
 2018-11-14 20:36:26.035  INFO 9604 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-14 20:43:42.012  INFO 9604 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-14 20:43:42.014  INFO 9604 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
