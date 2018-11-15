@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
+import ru.galkov.raceserver.RaceServerApplication.access;
 import ru.galkov.raceserver.db_access.StartDAO;
 import ru.galkov.raceserver.db_access.UsersDAO;
 import ru.galkov.raceserver.db_access.model.Start;
@@ -74,7 +75,7 @@ public class AskRaceConfig  extends AskRoot {
 					for (int i =0; i<Rows.size(); i++  ) {
 						Users Row = Rows.get(i);
 		                JSONObject obj = new JSONObject();
-
+		                if ((Row.getLevel()).equals(access.User.toString())) {
 		                obj.put("Id", Row.getId());
 		                obj.put(fieldsJSON.login.toString(), Row.getLogin());
 		                obj.put(fieldsJSON.level.toString(), Row.getLevel());
@@ -85,7 +86,8 @@ public class AskRaceConfig  extends AskRoot {
 		                obj.put(fieldsJSON.registred_start_id.toString() , Row.getRegistred_start_id());
 		                obj.put(fieldsJSON.registred_race_id.toString() , Row.getRegistred_race_id());
 
-		                arr.put(obj);						
+		                arr.put(obj);	
+		                }					
 					}
 		            outBoundJSON.put(fieldsJSON.usersArr.toString(), arr);
 		         
