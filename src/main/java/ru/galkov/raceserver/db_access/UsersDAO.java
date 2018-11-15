@@ -45,10 +45,16 @@ public class UsersDAO implements users_interface {
 				+ "`altitude` = '" + user.getAltitude() + "', "
 				+ "`longtitude` = '" + user.getLongtitude() + "', "
 				+ "`master_mark_label`='"+ user.getMaster_mark_label() +"', "
+				+ "`registred_race_id`='"+ user.getRegistred_race_id() +"', "
+				+ "`registred_start_id`='"+ user.getRegistred_start_id() +"', "
 				+ "`level` = '"+ user.getLevel() +"' where  `id` = '" + user.getId()+"'");
 		}
 		else addRow(user);
 	}
+	/*
+	 * 					u.setRegistred_race_id(res.getLong("registred_race_id"));
+					u.setRegistred_start_id(res.getLong("registred_start_id"));
+					*/
 	
 	@Override
 	public void deleteRow(Users user)  {
@@ -70,6 +76,8 @@ public class UsersDAO implements users_interface {
 				u.setLatitude(res.getDouble("latitude"));
 				u.setLongtitude(res.getDouble("longtitude"));
 				u.setMaster_mark_label(res.getString("master_mark_label"));
+				u.setRegistred_race_id(res.getLong("registred_race_id"));
+				u.setRegistred_start_id(res.getLong("registred_start_id"));
 			}
 
 		} catch (SQLException e) { logger.info(e.getMessage());}
@@ -118,6 +126,8 @@ public class UsersDAO implements users_interface {
 				u.setAltitude(res.getDouble("altitude"));
 				u.setLatitude(res.getDouble("latitude"));
 				u.setLongtitude(res.getDouble("longtitude"));
+				u.setRegistred_race_id(res.getLong("registred_race_id"));
+				u.setRegistred_start_id(res.getLong("registred_start_id"));
 			}
 
 		} catch (SQLException e) { logger.info(e.getMessage());}

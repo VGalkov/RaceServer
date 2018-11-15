@@ -33,6 +33,14 @@ public class AskCurrentRaceStart extends AskRoot {
 					Start start = sDAO.getActiveStart();
 				
 					try {  
+							UsersDAO uDAO = new UsersDAO();
+							Users u = uDAO.getRowIdByLogin(exec_login);
+							u.setRegistred_race_id(race.getId());
+							u.setRegistred_start_id(start.getId());
+							
+							uDAO = new UsersDAO();
+							uDAO.updateRow(u);
+							
 							outBoundJSON.put(fieldsJSON.race_id.toString(), race.getId());
 							outBoundJSON.put(fieldsJSON.race_name.toString(), race.getLabel());
 							outBoundJSON.put(fieldsJSON.start_id.toString(), start.getId());
