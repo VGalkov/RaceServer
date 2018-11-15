@@ -46,10 +46,10 @@ public class Users {
 
 	 
 	 @Column(name = "registred_race_idl")
-	 private Double registred_race_id;
+	 private long registred_race_id;
 	 
 	 @Column(name = "registred_start_id")
-	 private Double registred_start_id;
+	 private long registred_start_id;
 	 
 // ========================================================
 	 
@@ -62,19 +62,19 @@ public class Users {
 		return master_mark_label;
 	}
 
-	public Double getRegistred_race_id() {
+	public long getRegistred_race_id() {
 		return registred_race_id;
 	}
 
-	public void setRegistred_race_id(Double registred_race_id) {
+	public void setRegistred_race_id(long registred_race_id) {
 		this.registred_race_id = registred_race_id;
 	}
 
-	public Double getRegistred_start_id() {
+	public long getRegistred_start_id() {
 		return registred_start_id;
 	}
 
-	public void setRegistred_start_id(Double registred_start_id) {
+	public void setRegistred_start_id(long registred_start_id) {
 		this.registred_start_id = registred_start_id;
 	}
 

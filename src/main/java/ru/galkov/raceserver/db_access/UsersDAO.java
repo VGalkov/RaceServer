@@ -92,8 +92,8 @@ public class UsersDAO implements users_interface {
 					u.setAltitude(res.getDouble("altitude"));
 					u.setLatitude(res.getDouble("latitude"));
 					u.setLongtitude(res.getDouble("longtitude"));
-					u.setRegistred_race_id(res.getDouble("registred_race_id"));
-					u.setRegistred_start_id(res.getDouble("registred_start_id"));
+					u.setRegistred_race_id(res.getLong("registred_race_id"));
+					u.setRegistred_start_id(res.getLong("registred_start_id"));
 					u.setMaster_mark_label(res.getString("master_mark_label"));
 					users.add(u);
 				}
