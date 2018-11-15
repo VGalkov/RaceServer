@@ -70,26 +70,31 @@ public class AskRaceConfig  extends AskRoot {
 					
 					List<Users> Rows = users.getAllRows();
 					JSONArray arr = new JSONArray();
-					outBoundJSON.put(fieldsJSON.counter.toString(), Rows.size());
+/*					outBoundJSON.put(fieldsJSON.counter.toString(), Rows.size());
 					
 					for (int i =0; i<Rows.size(); i++  ) {
-						Users Row = Rows.get(i);
+						Users Row = Rows.get(i);*/
+					int counter = 0;
+					for (Users Row : Rows) {
 		                JSONObject obj = new JSONObject();
 		                if ((Row.getLevel()).equals(access.User.toString())) {
-		                obj.put("Id", Row.getId());
-		                obj.put(fieldsJSON.login.toString(), Row.getLogin());
-		                obj.put(fieldsJSON.level.toString(), Row.getLevel());
-		                obj.put(fieldsJSON.latitude.toString(), Row.getLatitude());
-		                obj.put(fieldsJSON.altitude.toString(), Row.getAltitude());
-		                obj.put(fieldsJSON.longitude.toString(), Row.getLongtitude());
-		                obj.put(fieldsJSON.master_mark_label.toString(), Row.getMaster_mark_label());
-		                obj.put(fieldsJSON.registred_start_id.toString() , Row.getRegistred_start_id());
-		                obj.put(fieldsJSON.registred_race_id.toString() , Row.getRegistred_race_id());
+		                	counter++;
+		                	obj.put("Id", Row.getId());
+		                	obj.put(fieldsJSON.login.toString(), Row.getLogin());
+		                	obj.put(fieldsJSON.level.toString(), Row.getLevel());
+		                	obj.put(fieldsJSON.latitude.toString(), Row.getLatitude());
+		                	obj.put(fieldsJSON.altitude.toString(), Row.getAltitude());
+		                	obj.put(fieldsJSON.longitude.toString(), Row.getLongtitude());
+		                	obj.put(fieldsJSON.master_mark_label.toString(), Row.getMaster_mark_label());
+		                	obj.put(fieldsJSON.registred_start_id.toString() , Row.getRegistred_start_id());
+		                	obj.put(fieldsJSON.registred_race_id.toString() , Row.getRegistred_race_id());
 
-		                arr.put(obj);	
+		                	arr.put(obj);	
 		                }					
 					}
+					
 		            outBoundJSON.put(fieldsJSON.usersArr.toString(), arr);
+		            outBoundJSON.put(fieldsJSON.counter.toString(), counter);
 		         
 				}
 				else {		outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");	}
