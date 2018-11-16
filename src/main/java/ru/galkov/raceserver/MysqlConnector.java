@@ -4,14 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
 
-public class MysqlConnector  { // implements Connection?
+
+public class MysqlConnector  { 
 	
 	private static String connectionUrl = RaceServerApplication.connectionUrl;
 	private static String connectionUser = RaceServerApplication.connectionUser;
-	private static String connectionPassword = RaceServerApplication.connectionPassword;
-//	private static Logger logger = RaceServerApplication.logger; 
+	private static String connectionPassword = RaceServerApplication.connectionPassword; 
 
 	private Connection con;
 	

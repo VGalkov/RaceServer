@@ -40,7 +40,6 @@ public class AskMapPoints extends AskRoot {
 			
 			if (serverKey.chkFileKey(clientKey))	{
 	            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
-	            outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 	          
 	            JSONArray arr = new JSONArray();	            
 	            UsersDAO uDAO = new UsersDAO();

@@ -33,7 +33,6 @@ public class AskNextMark extends AskRoot {
 				
 				if (serverKey.chkFileKey(clientKey))	{
 		            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
-		            outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 
 					NFCmarksDAO markDAO = new NFCmarksDAO();
 					NFCmarks mrk = markDAO.getNext(counter);

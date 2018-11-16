@@ -5,8 +5,7 @@ import java.text.*;
 import java.util.*;
 import ru.galkov.raceserver.*;
 import ru.galkov.raceserver.db_access.interfaces.main_log_interface;
-import ru.galkov.raceserver.db_access.model.MainLog;
-import ru.galkov.raceserver.db_access.model.Users;
+import ru.galkov.raceserver.db_access.model.*;
 
 
 public class MainLogDAO implements main_log_interface {

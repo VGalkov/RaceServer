@@ -1,8 +1,6 @@
 package ru.galkov.raceserver.db_access;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 import ru.galkov.raceserver.MysqlConnector;
 import ru.galkov.raceserver.db_access.interfaces.users_interface;
@@ -44,6 +42,7 @@ public class user_track_DAO implements users_interface {
 			stmt = con.createStatement();
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) { logger.info(e.getMessage());}
+		close();
 	}
 	
 	@Override
@@ -60,8 +59,12 @@ public class user_track_DAO implements users_interface {
 
 	@Override
 	public void addRow(Users user) {
-		// TODO Auto-generated method stub
-		
+		update("insert into user_track set "
+				+ "`user_id` = '" + user.getId() + "',"
+				+ "`datetime` = NOW(),"
+				+ "`latitude`= "+user.getLatitude()+","
+				+ "`altitude`= "+user.getAltitude()+","
+				+ "`longtitude` ="+user.getLongtitude());
 	}
 
 

@@ -26,8 +26,6 @@ public class AskRaceConfig  extends AskRoot {
 		String exec_level ="Error", exec_login = "nobody", clientKey = "";	
 		JSONObject outBoundJSON = new JSONObject();
 		JSONObject inBoundJSON = null;
-		long start_id = 0L, race_id = 0L;
-		String start_time, stop_time;
 		try {
 
 		/*	
@@ -56,7 +54,6 @@ public class AskRaceConfig  extends AskRoot {
 				
 				if (serverKey.chkFileKey(clientKey))	{
 		            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
-		            outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);		
 
 		            StartDAO sDAO = new StartDAO();
 					Start start =  sDAO.getActiveStart();
@@ -70,10 +67,7 @@ public class AskRaceConfig  extends AskRoot {
 					
 					List<Users> Rows = users.getAllRows();
 					JSONArray arr = new JSONArray();
-/*					outBoundJSON.put(fieldsJSON.counter.toString(), Rows.size());
-					
-					for (int i =0; i<Rows.size(); i++  ) {
-						Users Row = Rows.get(i);*/
+
 					int counter = 0;
 					for (Users Row : Rows) {
 		                JSONObject obj = new JSONObject();

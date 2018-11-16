@@ -30,7 +30,6 @@ public class AskStartSructure extends AskRoot {
 				
 				if (serverKey.chkFileKey(clientKey))	{
 		            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
-		            outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 		            outBoundJSON.put(fieldsJSON.race_id.toString(), race_id);	
 					
 	                StartDAO sDAO = new StartDAO(); 

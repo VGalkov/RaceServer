@@ -32,7 +32,6 @@ public class AskForMainLog extends AskRoot {
 				if (serverKey.chkFileKey(clientKey))	{
 					JSONArray arr = new JSONArray();
 		            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
-		            outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 					MainLogDAO mainLog = new MainLogDAO();
 					List<MainLog> Rows = mainLog.getAllRows();
 					

@@ -29,7 +29,6 @@ public class AskRaceStructure extends AskRoot {
 				
 				if (serverKey.chkFileKey(clientKey))	{
 		            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
-		            outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);		
 					
 		            RaceDAO rDAO = new RaceDAO();
 					List<Race> Rows = rDAO.getAllRows();
@@ -42,7 +41,7 @@ public class AskRaceStructure extends AskRoot {
 		                obj.put(fieldsJSON.active.toString(), Row.getActive());
 		                obj.put(fieldsJSON.label.toString(), Row.getLabel());
 		                obj.put(fieldsJSON.race_id.toString(), Row.getId());
-		                // список стартов, привязанных к соревнованию.
+		                
 		                StartDAO sDAO = new StartDAO(); 
 		                List<Start> startRows = sDAO.getRaceIdRows(Row.getId());
 		                JSONArray startsConfig = new JSONArray();

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.galkov.raceserver.RaceServerApplication;
 import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
 import ru.galkov.raceserver.db_access.UsersDAO;
+import ru.galkov.raceserver.db_access.user_track_DAO;
 import ru.galkov.raceserver.db_access.model.Users;
 
 
@@ -45,7 +46,7 @@ public class AskServerTime extends AskRoot {
 					outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
 					outBoundJSON.put(fieldsJSON.date.toString(), formatForDate.format(dt));
 					
-//TODO не нужно каждый тик прописывать новое положение клиента. пока сюда приходит на ум добавить rundom
+
 					final Random random = new Random();
 					if (random.nextInt(USER_GEO_TIMER)<=USER_GEO_TIMER/USER_GEO_FREQ) {
 						if ((exec_login!=null) && (!exec_login.equals("nobody")) && (!exec_login.equals(""))) {
@@ -57,6 +58,9 @@ public class AskServerTime extends AskRoot {
 							
 							uDAO = new UsersDAO();
 							uDAO.updateRow(u);
+							
+							user_track_DAO utDAO = new user_track_DAO();
+							utDAO.addRow(u);
 						}
 					}
 					

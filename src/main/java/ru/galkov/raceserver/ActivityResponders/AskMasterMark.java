@@ -26,9 +26,7 @@ public class AskMasterMark extends AskRoot {
 				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
 				
 				if (serverKey.chkFileKey(clientKey))	{
-		            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
-		            outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);		
-					
+		            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());					
 
 		            UsersDAO u = new UsersDAO();
 					Users user =  u.getRowIdByLogin(exec_login);
