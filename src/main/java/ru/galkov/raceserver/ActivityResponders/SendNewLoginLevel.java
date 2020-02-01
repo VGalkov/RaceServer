@@ -24,9 +24,7 @@ public class SendNewLoginLevel extends AskRoot {
 		inBoundJSON = new JSONObject(inJSON);
 				
 		master_mark_label = inBoundJSON.getString(fieldsJSON.master_mark_label.toString());
-		exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString()); 
-		exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString()); 
-		clientKey = inBoundJSON.getString(fieldsJSON.key.toString()); 
+		setSecurityVars(inBoundJSON);
 		inLevel = inBoundJSON.getString(fieldsJSON.level.toString()); 
 		login = inBoundJSON.getString(fieldsJSON.login.toString());
 		latitude = inBoundJSON.getDouble(fieldsJSON.latitude.toString());	

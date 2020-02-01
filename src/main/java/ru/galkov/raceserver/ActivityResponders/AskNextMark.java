@@ -22,10 +22,7 @@ public class AskNextMark extends AskRoot {
 		try {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
-
-				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());
-				exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());
-				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
+				setSecurityVars(inBoundJSON);
 				try { counter = inBoundJSON.getInt(fieldsJSON.counter.toString()); }
 				catch (JSONException e) { e.printStackTrace(); }
 				

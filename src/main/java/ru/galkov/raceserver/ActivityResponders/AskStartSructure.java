@@ -16,13 +16,10 @@ public class AskStartSructure extends AskRoot {
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		long race_id =0L;
 		try {
-
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
-
-				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());
-				exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());
-				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
+				setSecurityVars(inBoundJSON);
+				
 				race_id = inBoundJSON.getLong(fieldsJSON.race_id.toString());
 				
 				if (serverKey.chkFileKey(clientKey))	{

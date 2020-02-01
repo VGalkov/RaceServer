@@ -21,9 +21,7 @@ public class AskForMainLog extends AskRoot {
 		try {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
-				exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());
-				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
-				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());
+				setSecurityVars(inBoundJSON);
 				
 				if (serverKey.chkFileKey(clientKey))	{
 					JSONArray arr = new JSONArray();

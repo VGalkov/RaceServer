@@ -26,9 +26,7 @@ import javax.servlet.http.*;
 					outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 					inBoundJSON = new JSONObject(inJSON);
 					//http://192.168.1.5:8080/AskResultsImgTable/{'exec_level':'Admin','exec_login':'+79272006026','asker':'AskResultsImgTable','level'='Admin','key':'galkovvladimirandreevich'}
-					clientKey = inBoundJSON.getString(fieldsJSON.key.toString());		
-					exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());
-					exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
+					setSecurityVars(inBoundJSON);
 					imgType = inBoundJSON.getString(fieldsJSON.IMGType.toString());
 									
 					if (serverKey.chkFileKey(clientKey))	{

@@ -30,8 +30,7 @@ public class AskServerTime extends AskRoot {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				Date dt = new Date();				
 				inBoundJSON = new JSONObject(inJSON);
-				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());	
-				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());	
+				setSecurityVars(inBoundJSON);	
 				latitude = inBoundJSON.getDouble(fieldsJSON.latitude.toString());	
 				altitude = inBoundJSON.getDouble(fieldsJSON.altitude.toString());	
 				longtitude = inBoundJSON.getDouble(fieldsJSON.longitude.toString());	

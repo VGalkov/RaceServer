@@ -2,7 +2,6 @@ package ru.galkov.raceserver.db_access;
 
 import java.sql.*;
 import java.util.List;
-import ru.galkov.raceserver.MysqlConnector;
 import ru.galkov.raceserver.db_access.interfaces.users_interface;
 import ru.galkov.raceserver.db_access.model.Users;
 

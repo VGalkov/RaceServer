@@ -29,9 +29,7 @@ public class AskMapPoints extends AskRoot {
 		try {
 			outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 			inBoundJSON = new JSONObject(inJSON);
-			clientKey = inBoundJSON.getString(fieldsJSON.key.toString());
-			exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());				
-			exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
+			setSecurityVars(inBoundJSON);
 			
 			if (!exec_login.equals("nobody")) {
 			

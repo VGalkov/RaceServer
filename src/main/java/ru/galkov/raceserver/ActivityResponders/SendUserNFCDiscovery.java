@@ -19,7 +19,7 @@ public class SendUserNFCDiscovery  extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-		String exec_level ="Error", exec_login = "nobody", login = "", mark = "", master_mark_label="", clientKey = "";
+		String login = "", mark = "", master_mark_label="";
 		Double longitude = 0.00, altitude = 0.00, latitude = 0.00, mark_master_altitude=0.0,mark_master_longitude=0.0,
 				mark_master_latitude=0.0;	
 		long race_id = 0L, start_id = 0L, master_mark_delta = 0L;
@@ -30,9 +30,7 @@ public class SendUserNFCDiscovery  extends AskRoot {
 
 				master_mark_label = inBoundJSON.getString(fieldsJSON.master_mark_label.toString()); 
 				master_mark_delta = inBoundJSON.getLong(fieldsJSON.master_mark_delta.toString()); 
-				exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString()); 
-				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString()); 
-				clientKey = inBoundJSON.getString(fieldsJSON.key.toString()); 
+				setSecurityVars(inBoundJSON); 
 				mark = inBoundJSON.getString(fieldsJSON.mark.toString()); 
 				start_id = inBoundJSON.getLong(fieldsJSON.start.toString()); 
 				race_id = inBoundJSON.getLong(fieldsJSON.race.toString()); 				

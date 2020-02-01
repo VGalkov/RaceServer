@@ -35,9 +35,7 @@ public class SendNewNFCMark extends AskRoot{
 		outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 		inBoundJSON = new JSONObject(inJSON);	
 		
-		exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString()); 
-		exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString()); 
-		clientKey = inBoundJSON.getString(fieldsJSON.key.toString()); 
+		setSecurityVars(inBoundJSON);
 		mark = inBoundJSON.getString(fieldsJSON.mark.toString()); 
 		race = inBoundJSON.getLong(fieldsJSON.race.toString()); 
 		latitude = inBoundJSON.getDouble(fieldsJSON.latitude.toString());   

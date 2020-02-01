@@ -9,10 +9,13 @@ public interface EntytyAccess {
       
 	public static Logger logger = RaceServerApplication.logger;
 	
+	
 	public int count();
 	public void close();
 	ResultSet execute(String sql );
 	void update(String sql );
+	
+	
 	
 	
 	 default void workWithError(Exception e1, String str2) {

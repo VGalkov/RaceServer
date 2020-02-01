@@ -2,9 +2,11 @@ package ru.galkov.raceserver.ActivityResponders;
 
 
 import org.apache.log4j.Logger;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import ru.galkov.raceserver.RaceServerApplication;
+import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
 
 public abstract class AskRoot {
 	
@@ -19,4 +21,10 @@ public abstract class AskRoot {
 			e1.printStackTrace();
 			logger.error(asker1 + "Ошибка формата протокола. Не отработал");
 		}
+	
+	protected void setSecurityVars(JSONObject inBoundJSON1) throws JSONException {
+		clientKey = inBoundJSON1.getString(fieldsJSON.key.toString());
+		exec_level = inBoundJSON1.getString(fieldsJSON.exec_level.toString());
+		exec_login = inBoundJSON1.getString(fieldsJSON.exec_login.toString());
+	}
 }
