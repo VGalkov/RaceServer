@@ -10,7 +10,8 @@ public abstract class AskRoot {
 	
 	public ru.galkov.raceserver.Key serverKey = RaceServerApplication.serverKey;
 	protected Logger logger = RaceServerApplication.logger;	
-	protected String exec_level ="Error", exec_login = "nobody", clientKey = "";		
+	protected String exec_level ="Error", exec_login = "nobody", clientKey = "";	
+	
 	protected JSONObject outBoundJSON = new JSONObject();
 	protected JSONObject inBoundJSON = null;
 	

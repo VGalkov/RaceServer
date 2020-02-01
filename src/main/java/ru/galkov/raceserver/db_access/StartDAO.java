@@ -2,7 +2,6 @@ package ru.galkov.raceserver.db_access;
 
 import java.sql.*;
 import java.util.*;
-import ru.galkov.raceserver.*;
 import ru.galkov.raceserver.db_access.interfaces.start_interface;
 import ru.galkov.raceserver.db_access.model.Start;
 
@@ -70,7 +69,7 @@ public class StartDAO implements start_interface {
 				s.setStop_time(res.getString("stop_time"));
 			}
 		}
-		 catch (SQLException e) { workWithError(e, e.getMessage());}
+		 catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();	
 		return s;
 	}

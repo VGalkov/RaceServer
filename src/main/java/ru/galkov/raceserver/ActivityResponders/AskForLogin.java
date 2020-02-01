@@ -17,12 +17,10 @@ public class AskForLogin extends AskRoot {
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		
 		String login = "", password = "";
-
 		UsersDAO uDAO;
 		try {		
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
-				inBoundJSON = new JSONObject(inJSON);		
-				
+				inBoundJSON = new JSONObject(inJSON);						
 				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());
 				password = inBoundJSON.getString(fieldsJSON.password.toString());
 				login = inBoundJSON.getString(fieldsJSON.login.toString());			
@@ -55,9 +53,7 @@ public class AskForLogin extends AskRoot {
 						outBoundJSON.put(fieldsJSON.level.toString(), access.Guest);
 					}
 				}
-				else outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
-				
-		
+				else { outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!"); }				
 		} 
 		catch (JSONException e) { 	workWithError(e, ASKER); } 
 		

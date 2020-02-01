@@ -14,16 +14,13 @@ public class AskForMainLog extends AskRoot {
 
 	private static final String ASKER = "AskForMainLog";	
 	
-	
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 
 		try {
-
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
-
 				exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());
 				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
 				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());
