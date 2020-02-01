@@ -20,8 +20,6 @@ public class AskCurrentRaceStart extends AskRoot {
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
 		try {		
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);				
@@ -61,7 +59,7 @@ public class AskCurrentRaceStart extends AskRoot {
 							outBoundJSON.put(fieldsJSON.start_id.toString(), 0L);	
 					}
 				}
-				else outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
+				else { outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!"); }
 				
 
 		} 

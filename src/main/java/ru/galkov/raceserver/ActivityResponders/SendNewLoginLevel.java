@@ -15,9 +15,7 @@ public class SendNewLoginLevel extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-		String exec_level ="Error", exec_login = "nobody", login = "", inLevel = "", clientKey = "", password = "", master_mark_label="";
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
+		String login = "", inLevel = "", clientKey = "", password = "", master_mark_label="";
 		Double altitude = 0.0, latitude = 0.0, longtitude = 0.0;
 		
 	try {		
@@ -67,7 +65,7 @@ public class SendNewLoginLevel extends AskRoot {
 			outBoundJSON.put(fieldsJSON.login.toString(), trigger.TRUE);	
 			outBoundJSON.put(fieldsJSON.level.toString(),inLevel); 			
 		}
-		else 	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
+		else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!"); }
 	} 
 	catch (JSONException e) { workWithError(e, ASKER); }	
 	

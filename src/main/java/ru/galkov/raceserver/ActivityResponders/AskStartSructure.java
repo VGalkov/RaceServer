@@ -14,9 +14,7 @@ public class AskStartSructure extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-		
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
+
 		long race_id =0L;
 		try {
 

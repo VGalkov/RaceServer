@@ -15,8 +15,6 @@ public class AskMasterMark extends AskRoot {
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 			
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
 		try {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
@@ -32,9 +30,7 @@ public class AskMasterMark extends AskRoot {
 					Users user =  u.getRowIdByLogin(exec_login);
 		            outBoundJSON.put(fieldsJSON.mark_label.toString(), user.getMaster_mark_label());
 				}
-				else {
-					outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
-				}
+				else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");	}
 		}
 		catch (JSONException e) { workWithError(e, ASKER); }			
 

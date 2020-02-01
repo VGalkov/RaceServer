@@ -13,12 +13,9 @@ public class SendActiveRaceStart extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-		String exec_level ="Error", exec_login = "nobody",  clientKey = "";	
-		JSONObject outBoundJSON = new JSONObject();
+
 		//TODO String -> Date!!!
 		String start_time, stop_time;
-		// Date start_time, stop_time;
-		JSONObject inBoundJSON = null;
 		long start_id = 0L, race_id = 0L;
 		try {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);

@@ -24,15 +24,12 @@ public class AskServerTime extends AskRoot {
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		
-		Double altitude = 0.0, latitude = 0.0, longtitude = 0.0;
-		
-		JSONObject outBoundJSON = new JSONObject();
+		Double altitude = 0.0, latitude = 0.0, longtitude = 0.0;	
 		try {
 				
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				Date dt = new Date();				
-				JSONObject inBoundJSON = new JSONObject(inJSON);
-				
+				inBoundJSON = new JSONObject(inJSON);
 				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());	
 				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());	
 				latitude = inBoundJSON.getDouble(fieldsJSON.latitude.toString());	

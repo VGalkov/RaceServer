@@ -24,8 +24,6 @@ public class AskRaceConfig  extends AskRoot {
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
 		try {
 
 		/*	

@@ -26,9 +26,6 @@ public class AskMapPoints extends AskRoot {
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
-		
 		try {
 			outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 			inBoundJSON = new JSONObject(inJSON);
@@ -68,8 +65,7 @@ public class AskMapPoints extends AskRoot {
 	            
 	            outBoundJSON.put(fieldsJSON.rows.toString(), arr);
 			}		
-			else
-			outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
+			else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!"); }
 			}
 		}
 

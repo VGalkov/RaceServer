@@ -27,14 +27,11 @@ public class AskResultsTable extends AskRoot {
 				final HttpServletRequest request,
 				final HttpServletResponse response) {
 		String fileType ="";
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
 
 		try {
 
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
-
 				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());		
 				exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());
 				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());

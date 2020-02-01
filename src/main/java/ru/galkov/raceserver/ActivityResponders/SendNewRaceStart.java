@@ -15,9 +15,7 @@ public class SendNewRaceStart  extends AskRoot {
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		long start_id = 0L, race_id = 0L;
-		String exec_level ="Error", exec_login = "nobody", clientKey ="";
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
+
 		String start_time, stop_time;
 		try {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
@@ -56,8 +54,7 @@ public class SendNewRaceStart  extends AskRoot {
 					outBoundJSON.put(fieldsJSON.status.toString(), trigger.TRUE);
 		            outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey()); 
 				}
-				else
-					outBoundJSON.put(fieldsJSON.error.toString(), fieldsJSON.key + "- не верный!");
+				else { outBoundJSON.put(fieldsJSON.error.toString(), fieldsJSON.key + "- не верный!"); }
 		} 
 		catch (JSONException e) { workWithError(e, ASKER); }			
 		

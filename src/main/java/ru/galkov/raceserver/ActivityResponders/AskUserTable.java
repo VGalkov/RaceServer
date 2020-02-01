@@ -19,9 +19,6 @@ public class AskUserTable extends AskRoot {
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
-
 		try {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);

@@ -28,9 +28,8 @@ public class SendNewNFCMark extends AskRoot{
 		Double altitude = 0.0, latitude = 0.0, longitude = 0.0;
 		long race = 0;
 //		int counter = 0;
-		String exec_level ="Error", exec_login = "nobody", mark = "", clientKey = "";//, mark_type = marksTypes.normal.toString();
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
+		String mark = "";//, mark_type = marksTypes.normal.toString();
+
 	
 	try {		
 		outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
@@ -70,7 +69,7 @@ public class SendNewNFCMark extends AskRoot{
 			NFCmarksDAO nfc = new NFCmarksDAO();
 			nfc.addRow(markDB);
 		}
-		else 	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
+		else 	{ outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!"); }
 
 		} 
 	catch (JSONException e) { workWithError(e, ASKER); }	

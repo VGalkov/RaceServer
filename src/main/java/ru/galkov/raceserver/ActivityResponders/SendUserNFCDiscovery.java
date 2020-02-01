@@ -23,8 +23,7 @@ public class SendUserNFCDiscovery  extends AskRoot {
 		Double longitude = 0.00, altitude = 0.00, latitude = 0.00, mark_master_altitude=0.0,mark_master_longitude=0.0,
 				mark_master_latitude=0.0;	
 		long race_id = 0L, start_id = 0L, master_mark_delta = 0L;
-		JSONObject outBoundJSON = new JSONObject();		
-		JSONObject inBoundJSON = null;
+
 		try {		
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
@@ -87,7 +86,7 @@ public class SendUserNFCDiscovery  extends AskRoot {
 			outBoundJSON.put(fieldsJSON.key.toString(), serverKey.getFileKey());
 			
 		}
-		else 	outBoundJSON.put(fieldsJSON.error.toString(), fieldsJSON.key + "- не верный!");
+		else { outBoundJSON.put(fieldsJSON.error.toString(), fieldsJSON.key + "- не верный!"); }
 		
 	} 
 	catch (JSONException e) { workWithError(e, ASKER); } 	

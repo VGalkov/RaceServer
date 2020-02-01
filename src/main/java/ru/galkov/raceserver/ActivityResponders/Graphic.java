@@ -26,7 +26,7 @@ import ru.galkov.raceserver.db_access.model.Users;
 	public class Graphic {
 	
 		private String imgSource = img_types.ALL.toString();
-		//private String imgType = img_types.ALL.toString();
+		private String imgType = img_types.ALL.toString();
 		private int ImageWidth = 500;
 		private int ImageHeight = 500;
 		private int ramka = 3;

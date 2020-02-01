@@ -19,10 +19,8 @@ import javax.servlet.http.*;
 		public String makeAnswer(@PathVariable("inJSON") String inJSON, 
 					final HttpServletRequest request,
 					final HttpServletResponse response) {
+			
 			String imgType="ALL";
-			JSONObject outBoundJSON = new JSONObject();
-			JSONObject inBoundJSON = null;
-
 			try {
 
 					outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);

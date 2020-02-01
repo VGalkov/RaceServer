@@ -18,8 +18,6 @@ public class AskNextMark extends AskRoot {
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		
-		JSONObject outBoundJSON = new JSONObject();
-		JSONObject inBoundJSON = null;
 		int counter = 0;
 		try {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
