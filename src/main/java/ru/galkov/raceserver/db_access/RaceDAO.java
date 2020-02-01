@@ -2,7 +2,6 @@ package ru.galkov.raceserver.db_access;
 
 import java.sql.*;
 import java.util.*;
-import ru.galkov.raceserver.*;
 import ru.galkov.raceserver.db_access.interfaces.race_interface;
 import ru.galkov.raceserver.db_access.model.Race;
 
@@ -20,7 +19,7 @@ public class RaceDAO implements race_interface {
 	
 	@Override
 	public void close() {
-		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
+		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { workWithError(e, e.getMessage()); }}
 		if (mc!=null) { mc.close(); } 
 	}
 	

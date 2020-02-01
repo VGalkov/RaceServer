@@ -17,6 +17,7 @@ public class AskForLogin extends AskRoot {
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		
 		String login = "", password = "";
+
 		UsersDAO uDAO;
 		try {		
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
@@ -54,7 +55,7 @@ public class AskForLogin extends AskRoot {
 						outBoundJSON.put(fieldsJSON.level.toString(), access.Guest);
 					}
 				}
-				else { outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!"); }
+				else outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
 				
 		
 		} 

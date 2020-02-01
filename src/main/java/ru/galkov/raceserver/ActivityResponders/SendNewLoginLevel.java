@@ -15,7 +15,8 @@ public class SendNewLoginLevel extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-		String login = "", inLevel = "", clientKey = "", password = "", master_mark_label="";
+		String login = "", inLevel = "", password = "", master_mark_label="";
+
 		Double altitude = 0.0, latitude = 0.0, longtitude = 0.0;
 		
 	try {		
@@ -65,9 +66,9 @@ public class SendNewLoginLevel extends AskRoot {
 			outBoundJSON.put(fieldsJSON.login.toString(), trigger.TRUE);	
 			outBoundJSON.put(fieldsJSON.level.toString(),inLevel); 			
 		}
-		else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!"); }
+		else 	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
 	} 
-	catch (JSONException e) { workWithError(e, ASKER); }	
+	catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");}	
 	
 	new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);	
 	return outBoundJSON.toString();

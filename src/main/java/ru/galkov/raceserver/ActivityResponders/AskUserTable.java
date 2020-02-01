@@ -34,10 +34,8 @@ public class AskUserTable extends AskRoot {
 					List<Users> Rows = users.getAllRows();
 					JSONArray arr = new JSONArray();
 					
-					for (int i =0; i<Rows.size(); i++  ) {
-						Users Row = Rows.get(i);
+					for (Users Row : Rows) {						
 		                JSONObject obj = new JSONObject();
-
 		                obj.put("Id", Row.getId());
 		                obj.put(fieldsJSON.login.toString(), Row.getLogin());
 		                obj.put(fieldsJSON.level.toString(), Row.getLevel());
@@ -53,7 +51,7 @@ public class AskUserTable extends AskRoot {
 				}
 				else {	outBoundJSON.put(fieldsJSON.error.toString(), fieldsJSON.key + "- не верный!"); }
 		} 
-		catch (JSONException e) { workWithError(e, ASKER); }			
+		catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");}			
 		
 		new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);		
 		return outBoundJSON.toString();

@@ -19,8 +19,8 @@ import javax.servlet.http.*;
 		public String makeAnswer(@PathVariable("inJSON") String inJSON, 
 					final HttpServletRequest request,
 					final HttpServletResponse response) {
-			
 			String imgType="ALL";
+
 			try {
 
 					outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
@@ -51,7 +51,7 @@ import javax.servlet.http.*;
 					}
 					else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");	}
 			} 
-			catch (JSONException | IOException e) { workWithError(e, ASKER); }
+			catch (JSONException | IOException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");}
 
 			new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);
 			return outBoundJSON.toString();

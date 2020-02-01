@@ -29,7 +29,7 @@ public class SendNewNFCMark extends AskRoot{
 		long race = 0;
 //		int counter = 0;
 		String mark = "";//, mark_type = marksTypes.normal.toString();
-
+		
 	
 	try {		
 		outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
@@ -69,15 +69,14 @@ public class SendNewNFCMark extends AskRoot{
 			NFCmarksDAO nfc = new NFCmarksDAO();
 			nfc.addRow(markDB);
 		}
-		else 	{ outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!"); }
+		else 	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
 
 		} 
-	catch (JSONException e) { workWithError(e, ASKER); }	
+	catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");}	
 	
 	new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);	
 	return outBoundJSON.toString();
 }
 
-	
 
 }

@@ -65,7 +65,7 @@ public class AskMapPoints extends AskRoot {
 	            
 	            outBoundJSON.put(fieldsJSON.rows.toString(), arr);
 			}		
-			else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!"); }
+			else			outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
 			}
 		}
 

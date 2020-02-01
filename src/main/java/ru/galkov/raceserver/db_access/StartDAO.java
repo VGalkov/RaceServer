@@ -70,7 +70,7 @@ public class StartDAO implements start_interface {
 				s.setStop_time(res.getString("stop_time"));
 			}
 		}
-		 catch (SQLException e) { workWithError(e, e.getMessage()); }
+		 catch (SQLException e) { workWithError(e, e.getMessage());}
 		close();	
 		return s;
 	}

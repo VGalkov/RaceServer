@@ -17,7 +17,7 @@ public class AskForMainLog extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-		
+
 		try {
 
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);

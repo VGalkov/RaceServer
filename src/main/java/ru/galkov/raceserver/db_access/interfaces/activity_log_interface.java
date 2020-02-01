@@ -9,6 +9,4 @@ public interface activity_log_interface extends EntytyAccess {
     public void addRow(ActivityLog log);
     public ActivityLog getRowById(Long id);
     public List<ActivityLog> getAllRows();
-    
-    
 }

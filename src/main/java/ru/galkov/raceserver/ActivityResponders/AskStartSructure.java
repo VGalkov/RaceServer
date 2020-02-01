@@ -14,7 +14,6 @@ public class AskStartSructure extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-
 		long race_id =0L;
 		try {
 
@@ -33,10 +32,9 @@ public class AskStartSructure extends AskRoot {
 	                StartDAO sDAO = new StartDAO(); 
 	                List<Start> startRows = sDAO.getRaceIdRows(race_id);
 		            JSONArray startsConfig = new JSONArray();
-		                for (int j =0; j<startRows.size(); j++  ) {
-							Start startRow = startRows.get(j);
+		                for (Start startRow : startRows) {
+							
 			                JSONObject objStart = new JSONObject();
-			                objStart.put("Id", j);
 			                objStart.put(fieldsJSON.start_id.toString(), startRow.getId());
 			                objStart.put(fieldsJSON.active.toString(), startRow.getActive());
 			                objStart.put(fieldsJSON.label.toString(), startRow.getLabel());
@@ -47,7 +45,7 @@ public class AskStartSructure extends AskRoot {
 				}
 				else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");}
 		}
-		catch (JSONException e) { workWithError(e, ASKER); }
+		catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");}
 
 		new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);	
 		return outBoundJSON.toString();

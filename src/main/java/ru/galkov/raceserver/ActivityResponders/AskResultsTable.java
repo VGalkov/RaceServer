@@ -32,6 +32,7 @@ public class AskResultsTable extends AskRoot {
 
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
+
 				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());		
 				exec_level = inBoundJSON.getString(fieldsJSON.exec_level.toString());
 				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());
@@ -65,7 +66,7 @@ public class AskResultsTable extends AskRoot {
 				}
 				else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");	}
 		} 
-		catch (JSONException e) { workWithError(e, ASKER); }
+		catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");}
 
 		new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);
 		return outBoundJSON.toString();

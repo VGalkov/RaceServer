@@ -22,7 +22,7 @@ public class UsersDAO implements users_interface {
 	@Override
 	public void close() {
 		
-		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { workWithError(e, e.getMessage()); }}
+		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) {workWithError(e, e.getMessage());}}
 		if (mc!=null) { mc.close(); } 
 	}
 	

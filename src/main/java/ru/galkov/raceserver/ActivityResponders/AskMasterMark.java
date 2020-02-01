@@ -14,7 +14,7 @@ public class AskMasterMark extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-			
+		
 		try {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				inBoundJSON = new JSONObject(inJSON);
@@ -30,9 +30,11 @@ public class AskMasterMark extends AskRoot {
 					Users user =  u.getRowIdByLogin(exec_login);
 		            outBoundJSON.put(fieldsJSON.mark_label.toString(), user.getMaster_mark_label());
 				}
-				else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");	}
+				else {
+					outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");
+				}
 		}
-		catch (JSONException e) { workWithError(e, ASKER); }			
+		catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");}			
 
 		new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);	
 		return outBoundJSON.toString();

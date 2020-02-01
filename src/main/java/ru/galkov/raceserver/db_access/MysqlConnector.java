@@ -1,25 +1,27 @@
-package ru.galkov.raceserver;
+package ru.galkov.raceserver.db_access;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import ru.galkov.raceserver.RaceServerApplication;
 
 
-public class MysqlConnector  { 
+
+class MysqlConnector  { 
 	
 	private static String connectionUrl = RaceServerApplication.connectionUrl;
 	private static String connectionUser = RaceServerApplication.connectionUser;
 	private static String connectionPassword = RaceServerApplication.connectionPassword; 
 
-	private Connection con;
+	protected Connection con;
 	
 		
-	public MysqlConnector() {
+	MysqlConnector() {
 		setConnect();
 	}
 	
-	public Connection getConnection() {
+	Connection getConnection() {
 		return con;
 	}
 	
@@ -34,7 +36,7 @@ public class MysqlConnector  {
 		catch (ClassNotFoundException e) { e.printStackTrace(); }
 	}
 
-	public void close() {
+	void close() {
 		if (con!=null) { try {	con.close(); } catch (SQLException e) { e.printStackTrace(); }	}
 	}
 }
