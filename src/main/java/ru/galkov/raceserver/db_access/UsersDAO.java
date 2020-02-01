@@ -22,7 +22,7 @@ public class UsersDAO implements users_interface {
 	@Override
 	public void close() {
 		
-		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
+		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { workWithError(e, e.getMessage()); }}
 		if (mc!=null) { mc.close(); } 
 	}
 	
@@ -80,7 +80,7 @@ public class UsersDAO implements users_interface {
 				u.setRegistred_start_id(res.getLong("registred_start_id"));
 			}
 
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return u;
 	}
@@ -106,7 +106,7 @@ public class UsersDAO implements users_interface {
 					users.add(u);
 				}
 
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return users;
 	}
@@ -130,7 +130,7 @@ public class UsersDAO implements users_interface {
 				u.setRegistred_start_id(res.getLong("registred_start_id"));
 			}
 
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return u;
 	}
@@ -147,7 +147,7 @@ public class UsersDAO implements users_interface {
 			logger.debug(sql);
 			res = stmt.executeQuery(sql);
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		return res;
 	}
 	
@@ -157,7 +157,7 @@ public class UsersDAO implements users_interface {
 			stmt = con.createStatement();
 			logger.debug(sql);
 			stmt.executeUpdate(sql);
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 	}
 
@@ -168,7 +168,7 @@ public class UsersDAO implements users_interface {
 			ResultSet res = execute("select count(*) as num from users");
 			num = res.getInt("num");
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return num;
 	}

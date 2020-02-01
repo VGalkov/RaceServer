@@ -55,7 +55,7 @@ public class ActivityLogDAO implements activity_log_interface  {
 				al.add(l);
 			}
 		}
-		catch (SQLException | ParseException e) {	logger.error(e.getMessage());	}
+		catch (SQLException | ParseException e) {	workWithError(e, e.getMessage());	}
 		close();	
 		return al;
 	}
@@ -75,7 +75,7 @@ public class ActivityLogDAO implements activity_log_interface  {
 			l.setJson_in(res.getString("json_in"));
 			l.setJson_out(res.getString("json_out"));
 		} 
-		catch (SQLException | ParseException e) {	logger.error(e.getMessage());	}
+		catch (SQLException | ParseException e) {	workWithError(e, e.getMessage());	}
 		close();
 		return l;
 	}
@@ -88,7 +88,7 @@ public class ActivityLogDAO implements activity_log_interface  {
 			ResultSet res = execute("select count(*) as num from activitylog");
 			num = res.getInt("num");
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) {	workWithError(e, e.getMessage());	}
 		close();
 		return num;
 	}
@@ -101,7 +101,7 @@ public class ActivityLogDAO implements activity_log_interface  {
 			logger.debug(sql);
 			res = stmt.executeQuery(sql);
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) {	workWithError(e, e.getMessage());	}
 		return res;
 	}
 	
@@ -111,7 +111,7 @@ public class ActivityLogDAO implements activity_log_interface  {
 		try {
 			stmt = con.createStatement();
 			stmt.executeUpdate(sql);
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage());}
 		close();
 	}
 }

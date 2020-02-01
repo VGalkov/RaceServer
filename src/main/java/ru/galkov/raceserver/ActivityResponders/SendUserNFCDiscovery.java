@@ -90,7 +90,7 @@ public class SendUserNFCDiscovery  extends AskRoot {
 		else 	outBoundJSON.put(fieldsJSON.error.toString(), fieldsJSON.key + "- не верный!");
 		
 	} 
-	catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");} 	
+	catch (JSONException e) { workWithError(e, ASKER); } 	
 		
 		new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);	
 		return outBoundJSON.toString();

@@ -24,7 +24,6 @@ public class AskServerTime extends AskRoot {
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		
-		String exec_login = "";
 		Double altitude = 0.0, latitude = 0.0, longtitude = 0.0;
 		
 		JSONObject outBoundJSON = new JSONObject();
@@ -33,7 +32,6 @@ public class AskServerTime extends AskRoot {
 				outBoundJSON.put(fieldsJSON.asker.toString(), ASKER);
 				Date dt = new Date();				
 				JSONObject inBoundJSON = new JSONObject(inJSON);
-				String clientKey = "";
 				
 				clientKey = inBoundJSON.getString(fieldsJSON.key.toString());	
 				exec_login = inBoundJSON.getString(fieldsJSON.exec_login.toString());	
@@ -67,7 +65,7 @@ public class AskServerTime extends AskRoot {
 				}
 				else {	outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");	}
 		} 
-		catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");}
+		catch (JSONException e) { workWithError(e, ASKER); }
 
 		return outBoundJSON.toString();
 	}

@@ -23,7 +23,7 @@ public class MainLogDAO implements main_log_interface {
 	@Override
 	public void close() {
 		
-		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
+		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { workWithError(e, e.getMessage()); }}
 		if (mc!=null) { mc.close(); } 
 	}
 	
@@ -78,7 +78,7 @@ public class MainLogDAO implements main_log_interface {
 				log.setMark_master_longtitude(res.getDouble("mark_master_longtitude"));
 			}
 
-		} catch (SQLException | ParseException e) { logger.error(e.getMessage());}
+		} catch (SQLException | ParseException e) { workWithError(e, e.getMessage()); }
 		finally { close(); }
 		return log;
 	}
@@ -112,7 +112,7 @@ public class MainLogDAO implements main_log_interface {
 				ml.add(m);
 			}
 		}
-		catch (SQLException | ParseException e) {	logger.error(e.getMessage());	}
+		catch (SQLException | ParseException e) { workWithError(e, e.getMessage());	}
 		finally { close(); 	}	
 		return ml;
 	}
@@ -161,7 +161,7 @@ public class MainLogDAO implements main_log_interface {
 				ml.add(m);
 			}
 		}
-		catch (SQLException | ParseException e) {	logger.error(e.getMessage());	}
+		catch (SQLException | ParseException e) {	workWithError(e, e.getMessage());	}
 		finally { close(); 	}	
 		return ml;
 	}
@@ -177,7 +177,7 @@ public class MainLogDAO implements main_log_interface {
 			logger.debug(sql);
 			res = stmt.executeQuery(sql);
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) {	workWithError(e, e.getMessage());	}
 		return res;
 	}
 	
@@ -187,7 +187,7 @@ public class MainLogDAO implements main_log_interface {
 		try {
 			stmt = con.createStatement();
 			stmt.executeUpdate(sql);
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 	}
 	

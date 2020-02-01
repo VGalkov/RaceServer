@@ -41,7 +41,7 @@ public class user_track_DAO implements users_interface {
 		try {
 			stmt = con.createStatement();
 			stmt.executeUpdate(sql);
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 	}
 	
@@ -53,7 +53,7 @@ public class user_track_DAO implements users_interface {
 			logger.debug(sql);
 			res = stmt.executeQuery(sql);
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		return res;
 	}
 

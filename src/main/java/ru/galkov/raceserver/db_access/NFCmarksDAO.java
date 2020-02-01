@@ -20,7 +20,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 	
 	public void close() {
 		
-		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
+		if (stmt!=null) { try {	stmt.close(); } catch (SQLException e) { workWithError(e, e.getMessage()); }}
 		if (mc!=null) { mc.close(); } 
 	}
 	
@@ -57,7 +57,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 					n.setLongtitude(res.getDouble("longtitude"));
 				}
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) {	workWithError(e, e.getMessage());	}
 		close(); 
 		return n;
 	}
@@ -81,7 +81,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 					marks.add(m);
 				}
 
-		} catch (SQLException e) { logger.error(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 
 		return marks;
@@ -105,9 +105,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 					n.setLongtitude(res.getDouble("longtitude"));
 				}
 		} 
-		catch (SQLException e) {	
-			logger.error(e.getMessage());
-		}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close(); 	
 		return n;
 	}
@@ -127,7 +125,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 					n.setCounter(res.getInt(counter));
 				}
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close(); 
 		return n;
 	}
@@ -146,9 +144,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 					n.setLongtitude(res.getDouble("longtitude"));
 				}
 		} 
-		catch (SQLException e) {	
-			logger.error(e.getMessage());
-		}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close(); 	
 		return n;
 	}
@@ -161,7 +157,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 			logger.debug(sql);
 			res = stmt.executeQuery(sql);
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		return res;
 	}
 
@@ -171,7 +167,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 		try {
 			stmt = con.createStatement();
 			stmt.executeUpdate(sql);
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 	}
 
@@ -182,7 +178,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 			ResultSet res = execute("select count(*) as num from nfc_marks");
 			num = res.getInt("num");
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return num;
 	}	

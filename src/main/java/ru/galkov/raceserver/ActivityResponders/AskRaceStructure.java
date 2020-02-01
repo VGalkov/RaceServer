@@ -15,7 +15,7 @@ public class AskRaceStructure extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-		String exec_level ="Error", exec_login = "nobody", clientKey = "";	
+			
 		JSONObject outBoundJSON = new JSONObject();
 		JSONObject inBoundJSON = null;
 		try {
@@ -63,7 +63,7 @@ public class AskRaceStructure extends AskRoot {
 				}
 				else {		outBoundJSON.put(fieldsJSON.error.toString(), clientKey + "- не верный!");	}
 		} 
-		catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");}
+		catch (JSONException e) { workWithError(e, ASKER); }
 
 		new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);	
 		return outBoundJSON.toString();

@@ -12,7 +12,6 @@ import ru.galkov.raceserver.db_access.RaceDAO;
 import ru.galkov.raceserver.db_access.StartDAO;
 import ru.galkov.raceserver.db_access.UsersDAO;
 import ru.galkov.raceserver.db_access.model.MainLog;
-import ru.galkov.raceserver.db_access.model.NFCmarks;
 import ru.galkov.raceserver.db_access.model.Race;
 import ru.galkov.raceserver.db_access.model.Start;
 import ru.galkov.raceserver.db_access.model.Users;
@@ -27,7 +26,7 @@ import ru.galkov.raceserver.db_access.model.Users;
 	public class Graphic {
 	
 		private String imgSource = img_types.ALL.toString();
-		private String imgType = img_types.ALL.toString();
+		//private String imgType = img_types.ALL.toString();
 		private int ImageWidth = 500;
 		private int ImageHeight = 500;
 		private int ramka = 3;

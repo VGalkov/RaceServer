@@ -6,6 +6,11 @@ import ru.galkov.raceserver.RaceServerApplication.*;
 import ru.galkov.raceserver.db_access.*;
 import ru.galkov.raceserver.db_access.model.*;
 
+/*
+http://localhost:8080/ASKER/%7B%22asker%22:%22AskUserTable%22,%20%22key%22:%22galkovvladimirandreevich%22%7D
+
+ */
+
 @RestController
 public class AskCurrentRaceStart extends AskRoot {
 
@@ -14,7 +19,7 @@ public class AskCurrentRaceStart extends AskRoot {
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
-		String clientKey = "", exec_level ="Error", exec_login = "nobody";
+		
 		JSONObject outBoundJSON = new JSONObject();
 		JSONObject inBoundJSON = null;
 		try {		
@@ -60,12 +65,11 @@ public class AskCurrentRaceStart extends AskRoot {
 				
 
 		} 
-		catch (JSONException e) { 	e.printStackTrace();logger.error(ASKER + "Ошибка формата протокола. Не отработал");} 
+		catch (JSONException e) { workWithError(e, ASKER);	 } 
 		
 		new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);
 		return outBoundJSON.toString();
 	}
 	
-	
-	
+		
 }

@@ -70,7 +70,7 @@ public class StartDAO implements start_interface {
 				s.setStop_time(res.getString("stop_time"));
 			}
 		}
-		 catch (SQLException e) { e.printStackTrace(); logger.error(e.getMessage());}
+		 catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();	
 		return s;
 	}
@@ -92,7 +92,7 @@ public class StartDAO implements start_interface {
 				start.add(s);
 			}
 		}
-		 catch (SQLException e) { e.printStackTrace(); logger.error(e.getMessage());}
+		 catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return start;
 	}
@@ -115,7 +115,7 @@ public class StartDAO implements start_interface {
 				start.add(s);
 			}
 		}
-		 catch (SQLException e) { e.printStackTrace(); logger.error(e.getMessage());}
+		 catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return start;
 	}
@@ -143,7 +143,7 @@ public class StartDAO implements start_interface {
 			s.setStop_time(res.getString("stop_time"));
 		}
 		}
-		 catch (SQLException e) { e.printStackTrace(); logger.error(e.getMessage());}
+		 catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return s;
 	}
@@ -156,7 +156,7 @@ public class StartDAO implements start_interface {
 		try {
 			stmt = con.createStatement();
 			stmt.executeUpdate(sql);
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 	}
 	
 	@Override
@@ -167,7 +167,7 @@ public class StartDAO implements start_interface {
 			logger.debug(sql);
 			res = stmt.executeQuery(sql);
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		return res;
 	}
 
@@ -179,7 +179,7 @@ public class StartDAO implements start_interface {
 			ResultSet res = execute("select count(*) as num from start");
 			num = res.getInt("num");
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return num;
 	}

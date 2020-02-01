@@ -51,7 +51,7 @@ public class RaceDAO implements race_interface {
 			}
 
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return r;
 	}
@@ -70,7 +70,7 @@ public class RaceDAO implements race_interface {
 			}
 
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return r;
 	}
@@ -88,7 +88,7 @@ public class RaceDAO implements race_interface {
 				race.add(r);
 			}
 		}
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();	
 		return race;
 	}
@@ -116,7 +116,7 @@ public class RaceDAO implements race_interface {
 			logger.debug(sql);
 			res = stmt.executeQuery(sql);
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		return res;
 	}
 	
@@ -126,7 +126,7 @@ public class RaceDAO implements race_interface {
 		try {
 			stmt = con.createStatement();
 			stmt.executeUpdate(sql);
-		} catch (SQLException e) { logger.info(e.getMessage());}
+		} catch (SQLException e) { workWithError(e, e.getMessage()); }
 	}
 
 	@Override
@@ -136,7 +136,7 @@ public class RaceDAO implements race_interface {
 			ResultSet res = execute("select count(*) as num from race");
 			num = res.getInt("num");
 		} 
-		catch (SQLException e) {	logger.error(e.getMessage());	}
+		catch (SQLException e) { workWithError(e, e.getMessage()); }
 		close();
 		return num;
 	}	

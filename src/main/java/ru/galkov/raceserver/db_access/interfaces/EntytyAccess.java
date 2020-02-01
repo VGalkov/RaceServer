@@ -13,4 +13,9 @@ public interface EntytyAccess {
 	public void close();
 	ResultSet execute(String sql );
 	void update(String sql );
+	
+	 default void workWithError(Exception e1, String str2) {
+		e1.printStackTrace();
+		logger.error(str2 + "Ошибка формата протокола. Не отработал");
+	}
 }
