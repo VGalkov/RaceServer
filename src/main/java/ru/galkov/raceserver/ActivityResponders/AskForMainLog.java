@@ -14,6 +14,7 @@ public class AskForMainLog extends AskRoot {
 
 	private static final String ASKER = "AskForMainLog";	
 	
+	
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
