@@ -2,15 +2,17 @@ package ru.galkov.raceserver.ActivityResponders;
 
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
-import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
-import ru.galkov.raceserver.RaceServerApplication.trigger;
+
+import ru.galkov.raceserver.Enums;
+//import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
+//import ru.galkov.raceserver.RaceServerApplication.trigger;
 import ru.galkov.raceserver.db_access.NFCmarksDAO;
 import ru.galkov.raceserver.db_access.model.NFCmarks;
 
 //  возвращает ближайшую следующую метку.
 
 @RestController
-public class AskNextMark extends AskRoot {
+public class AskNextMark extends AskRoot implements Enums {
 
 	private static final String ASKER = "AskNextMark";	
 	

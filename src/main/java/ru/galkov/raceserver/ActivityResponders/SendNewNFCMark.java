@@ -9,14 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
-import ru.galkov.raceserver.RaceServerApplication.trigger;
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.db_access.NFCmarksDAO;
 import ru.galkov.raceserver.db_access.model.NFCmarks;
 
 
 @RestController
-public class SendNewNFCMark extends AskRoot{
+public class SendNewNFCMark extends AskRoot implements Enums {
 	private static final String ASKER = "SendNewNFCMark";
 
 

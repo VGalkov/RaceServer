@@ -3,14 +3,12 @@ package ru.galkov.raceserver.db_access;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import ru.galkov.raceserver.*;
 import ru.galkov.raceserver.db_access.interfaces.activity_log_interface;
 import ru.galkov.raceserver.db_access.model.ActivityLog;
 
 public class ActivityLogDAO implements activity_log_interface  {
 
 	private MysqlConnector mc;
-	private SimpleDateFormat formatForDate = RaceServerApplication.formatForDate;
 	private java.sql.Statement stmt;
 	private Connection con;
 	

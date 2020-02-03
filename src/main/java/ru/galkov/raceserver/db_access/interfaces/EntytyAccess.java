@@ -2,12 +2,15 @@ package ru.galkov.raceserver.db_access.interfaces;
 
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+
 import org.apache.log4j.Logger;
 import ru.galkov.raceserver.RaceServerApplication;
 
 public interface EntytyAccess {
       
 	public static Logger logger = RaceServerApplication.logger;
+	public static SimpleDateFormat formatForDate = RaceServerApplication.formatForDate;
 	
 	
 	public int count();

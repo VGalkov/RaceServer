@@ -5,6 +5,7 @@ import java.util.List;
 import ru.galkov.raceserver.db_access.model.MainLog;
 
 public interface main_log_interface extends EntytyAccess {
+	
     public void addRow(MainLog log);
     public void updateRow(MainLog log);
     public MainLog getRowById(Long id);

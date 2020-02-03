@@ -4,13 +4,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
+
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.RaceServerApplication;
-import ru.galkov.raceserver.RaceServerApplication.*;
 import ru.galkov.raceserver.db_access.*;
 import ru.galkov.raceserver.db_access.model.*;
 
 @RestController
-public class SendUserNFCDiscovery  extends AskRoot {
+public class SendUserNFCDiscovery  extends AskRoot implements Enums {
 	
 	private static final String ASKER = "SendUserNFCDiscovery";
 	private SimpleDateFormat formatForDate = RaceServerApplication.formatForDate;

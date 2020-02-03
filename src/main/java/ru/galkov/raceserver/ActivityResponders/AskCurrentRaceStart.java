@@ -2,12 +2,13 @@ package ru.galkov.raceserver.ActivityResponders;
 
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
-import ru.galkov.raceserver.RaceServerApplication.*;
+
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.db_access.*;
 import ru.galkov.raceserver.db_access.model.*;
 
 @RestController
-public class AskCurrentRaceStart extends AskRoot {
+public class AskCurrentRaceStart extends AskRoot implements Enums {
 
 	private final String ASKER = "AskCurrentRaceStart"; // this.toString().substring(0,this.toString().indexOf('@'));
 

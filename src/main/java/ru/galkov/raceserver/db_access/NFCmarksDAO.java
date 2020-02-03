@@ -2,7 +2,6 @@ package ru.galkov.raceserver.db_access;
 
 import java.sql.*;
 import java.util.*;
-import ru.galkov.raceserver.*;
 import ru.galkov.raceserver.db_access.interfaces.nfc_marks_interface;
 import ru.galkov.raceserver.db_access.model.NFCmarks;
 

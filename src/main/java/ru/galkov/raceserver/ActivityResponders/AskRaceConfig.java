@@ -9,22 +9,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
-import ru.galkov.raceserver.RaceServerApplication.access;
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.db_access.StartDAO;
 import ru.galkov.raceserver.db_access.UsersDAO;
 import ru.galkov.raceserver.db_access.model.Start;
 import ru.galkov.raceserver.db_access.model.Users;
 
 @RestController
-public class AskRaceConfig  extends AskRoot {
+public class AskRaceConfig  extends AskRoot implements Enums {
 	private static final String ASKER = "AskRaceConfig";	
 	
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 
 	@ResponseBody
 	public String makeAnswer(@PathVariable("inJSON") String inJSON) {
 		
-
 		try {
 
 		/*	
@@ -94,7 +92,4 @@ public class AskRaceConfig  extends AskRoot {
 		new WriteLog(ASKER,inBoundJSON, outBoundJSON, exec_login, exec_level);	
 		return outBoundJSON.toString();
 	}
-	
-	
-
 }

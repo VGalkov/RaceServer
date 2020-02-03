@@ -4,13 +4,14 @@ package ru.galkov.raceserver.ActivityResponders;
 import java.util.List;
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
-import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
+
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.db_access.UsersDAO;
 import ru.galkov.raceserver.db_access.model.Users;
 
 
 @RestController
-public class AskUserTable extends AskRoot {
+public class AskUserTable extends AskRoot implements Enums {
 	
 	private static final String ASKER = "AskUserTable";
 

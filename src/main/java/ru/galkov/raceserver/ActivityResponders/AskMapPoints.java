@@ -10,15 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
-import ru.galkov.raceserver.RaceServerApplication.points_types;
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.db_access.NFCmarksDAO;
 import ru.galkov.raceserver.db_access.UsersDAO;
 import ru.galkov.raceserver.db_access.model.NFCmarks;
 import ru.galkov.raceserver.db_access.model.Users;
 
 @RestController
-public class AskMapPoints extends AskRoot {
+public class AskMapPoints extends AskRoot implements Enums {
 
 	private static final String ASKER = "AskMapPoints";	
 	

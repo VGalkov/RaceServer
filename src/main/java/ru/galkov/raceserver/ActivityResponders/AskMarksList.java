@@ -3,13 +3,14 @@ package ru.galkov.raceserver.ActivityResponders;
 import java.util.List;
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
-import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
+
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.db_access.NFCmarksDAO;
 import ru.galkov.raceserver.db_access.model.NFCmarks;
 
 
 @RestController
-public class AskMarksList extends AskRoot{
+public class AskMarksList extends AskRoot  implements Enums {
 
 	private static final String ASKER = "AskMarksList";
 		

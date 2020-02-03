@@ -2,12 +2,13 @@ package ru.galkov.raceserver.ActivityResponders;
 
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
-import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
+
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.db_access.*;
 import ru.galkov.raceserver.db_access.model.Start;
 
 @RestController
-public class SendActiveRaceStart extends AskRoot {
+public class SendActiveRaceStart extends AskRoot implements Enums {
 	private static final String ASKER = "SendActiveRaceStart";
 	
 	@RequestMapping(value = "/" + ASKER + "/{inJSON}") 

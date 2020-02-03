@@ -7,14 +7,15 @@ import javax.servlet.http.*;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
+
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.RaceServerApplication;
-import ru.galkov.raceserver.RaceServerApplication.*;
 import ru.galkov.raceserver.db_access.*;
 import ru.galkov.raceserver.db_access.model.*;
 
 
 @RestController
-public class AskResultsTable extends AskRoot {
+public class AskResultsTable extends AskRoot implements Enums {
 
 	private static final String ASKER = "AskResultsTable";
 	private SimpleDateFormat formatForDate = RaceServerApplication.formatForDate;

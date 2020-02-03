@@ -6,15 +6,16 @@ import java.util.Random;
 
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
+
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.RaceServerApplication;
-import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
 import ru.galkov.raceserver.db_access.UsersDAO;
 import ru.galkov.raceserver.db_access.user_track_DAO;
 import ru.galkov.raceserver.db_access.model.Users;
 
 
 @RestController
-public class AskServerTime extends AskRoot {
+public class AskServerTime extends AskRoot implements Enums {
 	private static final String ASKER = "AskServerTime";
 	private SimpleDateFormat formatForDate = RaceServerApplication.formatForDate;
 	private final int USER_GEO_TIMER = RaceServerApplication.USER_GEO_TIMER;

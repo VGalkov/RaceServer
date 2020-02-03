@@ -6,7 +6,7 @@ package ru.galkov.raceserver.ActivityResponders;
 	import java.awt.image.BufferedImage;
 import java.util.List;
 
-import ru.galkov.raceserver.RaceServerApplication.img_types;
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.db_access.MainLogDAO;
 import ru.galkov.raceserver.db_access.RaceDAO;
 import ru.galkov.raceserver.db_access.StartDAO;
@@ -23,7 +23,7 @@ import ru.galkov.raceserver.db_access.model.Users;
 	 * */
 	
 
-	public class Graphic {
+	public class Graphic implements Enums {
 	
 		private String imgSource = img_types.ALL.toString();
 		private String imgType = img_types.ALL.toString();

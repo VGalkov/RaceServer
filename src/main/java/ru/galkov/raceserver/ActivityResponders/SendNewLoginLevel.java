@@ -3,12 +3,13 @@ package ru.galkov.raceserver.ActivityResponders;
 
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
-import ru.galkov.raceserver.RaceServerApplication.*;
+
+import ru.galkov.raceserver.Enums;
 import ru.galkov.raceserver.db_access.UsersDAO;
 import ru.galkov.raceserver.db_access.model.Users;
 
 @RestController
-public class SendNewLoginLevel extends AskRoot {
+public class SendNewLoginLevel extends AskRoot implements Enums {
 	
 	private static final String ASKER = "SendUserLevel";
 	

@@ -3,13 +3,15 @@ package ru.galkov.raceserver.ActivityResponders;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.json.*;
 import org.springframework.web.bind.annotation.*;
-import ru.galkov.raceserver.RaceServerApplication.fieldsJSON;
+
+import ru.galkov.raceserver.Enums;
+
 import java.io.*;
 import javax.imageio.ImageIO;
 import javax.servlet.http.*;
 
 	@RestController
-	public class AskResultsImgTable extends AskRoot {
+	public class AskResultsImgTable extends AskRoot implements Enums {
 
 		private static final String ASKER = "AskResultsImgTable";
 		

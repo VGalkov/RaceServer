@@ -3,7 +3,6 @@ package ru.galkov.raceserver.db_access;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import ru.galkov.raceserver.*;
 import ru.galkov.raceserver.db_access.interfaces.main_log_interface;
 import ru.galkov.raceserver.db_access.model.*;
 
@@ -12,7 +11,6 @@ public class MainLogDAO implements main_log_interface {
 
 	private MysqlConnector mc; 
 	private java.sql.Statement stmt;
-	private SimpleDateFormat formatForDate = RaceServerApplication.formatForDate;
 	private Connection con;
 	
 	public MainLogDAO() {
