@@ -11,7 +11,7 @@ public class RaceServerApplication implements Enums, Configuration {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(RaceServerApplication.class, args);
-		logger.info("Сервер запущен!");		
+//		logger.info("Сервер запущен!");		
 	}
 	
 }

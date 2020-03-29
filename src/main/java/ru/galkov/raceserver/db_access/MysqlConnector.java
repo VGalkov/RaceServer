@@ -3,7 +3,6 @@ package ru.galkov.raceserver.db_access;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import ru.galkov.raceserver.RaceServerApplication;
 
 
@@ -15,11 +14,20 @@ class MysqlConnector  {
 	private static String connectionPassword = RaceServerApplication.connectionPassword; 
 
 	protected Connection con;
+	private static MysqlConnector instance; 
+	
 	
 		
-	MysqlConnector() {
+	private MysqlConnector() {
 		setConnect();
 	}
+	
+	
+	public static synchronized MysqlConnector getInstance() {
+		if (instance == null) instance = new MysqlConnector();
+		return instance;
+	}
+		
 	
 	Connection getConnection() {
 		return con;

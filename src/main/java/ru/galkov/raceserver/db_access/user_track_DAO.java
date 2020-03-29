@@ -14,7 +14,7 @@ public class user_track_DAO implements users_interface {
 	
 	
 	public user_track_DAO() {
-		mc = new MysqlConnector();
+		MysqlConnector mc = MysqlConnector.getInstance();
 		con = mc.getConnection();
 	}
 

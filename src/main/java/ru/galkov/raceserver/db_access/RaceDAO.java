@@ -13,7 +13,7 @@ public class RaceDAO implements race_interface {
 	private Connection con;
 	
 	public RaceDAO() {
-		mc = new MysqlConnector();
+		MysqlConnector mc = MysqlConnector.getInstance();
 		con = mc.getConnection();
 	}
 	

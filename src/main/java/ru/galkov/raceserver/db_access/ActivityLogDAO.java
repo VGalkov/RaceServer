@@ -13,7 +13,7 @@ public class ActivityLogDAO implements activity_log_interface  {
 	private Connection con;
 	
 	public ActivityLogDAO() {
-		mc = new MysqlConnector();
+		MysqlConnector mc = MysqlConnector.getInstance();
 		con = mc.getConnection();
 	}
 	

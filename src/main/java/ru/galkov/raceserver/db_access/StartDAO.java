@@ -12,7 +12,7 @@ public class StartDAO implements start_interface {
 	private Connection con;
 	
 	public StartDAO() {
-		mc = new MysqlConnector();
+		MysqlConnector mc = MysqlConnector.getInstance();
 		con = mc.getConnection();
 	}
 	

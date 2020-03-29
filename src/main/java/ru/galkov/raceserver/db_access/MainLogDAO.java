@@ -14,7 +14,7 @@ public class MainLogDAO implements main_log_interface {
 	private Connection con;
 	
 	public MainLogDAO() {
-		mc = new MysqlConnector();
+		MysqlConnector mc = MysqlConnector.getInstance();
 		con = mc.getConnection();
 	}
 	

@@ -14,7 +14,7 @@ public class UsersDAO implements users_interface {
 	
 	
 	public UsersDAO() {
-		mc = new MysqlConnector();
+		MysqlConnector mc = MysqlConnector.getInstance();
 		con = mc.getConnection();
 	}
 

@@ -13,7 +13,7 @@ public class NFCmarksDAO implements nfc_marks_interface {
 	private Connection con;
 	
 	public NFCmarksDAO() {
-		mc = new MysqlConnector();
+		MysqlConnector mc = MysqlConnector.getInstance();
 		con = mc.getConnection();
 	}
 	
